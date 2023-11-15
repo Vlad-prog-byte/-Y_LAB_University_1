@@ -6,16 +6,16 @@ import axios from 'axios';
 const validate = values => {
   const errors = {};
   if (!values.password) {
- errors.firstName = 'Обязательное поле';
-  } else if (values.password.length < 5) {
- errors.password = 'Длина пароля должна быть больше 5 символов';
+    errors.password = 'Обязательное поле';
+  } else if (values.password.length <= 5) {
+    errors.password = 'Длина пароля должна быть больше 5 символов';
   }
 
 
   if (!values.email) {
- errors.email = 'Обязятельное поле';
+    errors.email = 'Обязятельное поле';
   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
- errors.email = 'Неправильный адрес';
+    errors.email = 'Неправильный адрес';
   }
 
   return errors;
